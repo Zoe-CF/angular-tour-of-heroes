@@ -1,0 +1,26 @@
+<h2>My Heroes</h2>
+
+<div>
+  <label
+    >Hero name:
+    <input #heroName />
+  </label>
+  <!-- Évènement au clic qui lance add() et vide le input derrière -->
+  <button (click)="add(heroName.value); heroName.value = ''">add</button>
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <!-- "ngFor" va permettre de faire une boucle avec la syntaxe du template d'une directive - il va disparaitre du html une fois éxécuté ;)
+   "let hero of heroes" permet de récupérer la liste des héros définis dans le composant (dashboard.component.ts) 
+  le "hero" permet d'obtenir un héro de cette variable. La boucle va itérer de la ligne 4 jusqu'à la ligne 9 pour générer du html, héro par héro 
+-->
+    <a routerLink="/detail/{{ hero.id }}">
+      <!-- routerLink permet de naviguer dans la navigation et créer un hyperlink qui va mener à une autre page, celle du détail héro par le biais de son id 
+    qui va s'afficher aussi dans l'url -->
+      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+    </a>
+    <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
+    <!-- apppele au clic sur le bouton 'x' à la fonction delete() définie dans le hero.component.ts -->
+  </li>
+</ul>

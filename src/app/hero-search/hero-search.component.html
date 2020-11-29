@@ -1,0 +1,19 @@
+<div id="search-component">
+  <h4><label for="search-box">Hero Search</label></h4>
+
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  <!-- Lorsque l’utilisateur tape dans la zone de recherche, une liaison d’événement de touche appelle 
+  la méthode search() du composant avec la nouvelle valeur de la zone de recherche. -->
+
+  <ul class="search-result">
+    <li *ngFor="let hero of heroes$ | async">
+      <!--La directive structurelle ngFor permet de boucler sur un array et d'injecter les éléments dans le DOM.
+    -->
+      <a routerLink="/detail/{{ hero.id }}">
+        <!-- création d'un lien qui va parcourir l'url et afficher les détails via l'id catché -->
+        {{ hero.name }}
+        <!-- va afficher le nom héro via son id -->
+      </a>
+    </li>
+  </ul>
+</div>

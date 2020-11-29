@@ -1,0 +1,19 @@
+<div *ngIf="hero">
+  <!-- ngIf est une directrice structurelle pour modifier le DOM et va afficher les données de "hero" de façon conditionnelle-->
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <!-- On récupère les noms des héros + le pipe pour les passer en majuscule -->
+  <div><span>id: </span>{{ hero.id }}</div>
+  <!-- on récupère l'id des héros -->
+  <div>
+    <label
+      >name: <input [(ngModel)]="hero.name" placeholder="name" />
+      <!-- on utilise NgModel comme un formControlName pour remplir le textarea-->
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <!-- bouton qui appelle la fonction goBack() -->
+
+  <button (click)="save()">save</button
+  ><!-- bouton qui appelle la fonction save()
+  les commandes sont définies dans le hero-detail.component.ts /!\ -->
+</div>

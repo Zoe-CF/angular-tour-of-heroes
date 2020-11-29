@@ -1,0 +1,23 @@
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <a
+    *ngFor="let hero of heroes"
+    class="col-1-4"
+    routerLink="/detail/{{ hero.id }}"
+  >
+    <!-- "ngFor" va permettre de faire une boucle avec la syntaxe du template d'une directive - il va disparaitre du html une fois éxécuté ;)
+   "let hero of heroes" permet de récupérer la liste des héros définis dans le composant (dashboard.component.ts) 
+  le "hero" permet d'obtenir un héro de cette variable. La boucle va itérer de la ligne 4 jusqu'à la ligne 9 pour générer du html, héro par héro 
+
+  routerLink permet de naviguer dans la navigation et créer un hyperlink qui va mener à une autre page, celle du détail héro par le biais de son id 
+  qui va s'afficher aussi dans l'url
+-->
+    <div class="module hero">
+      <h4>{{ hero.name }}</h4>
+      <!--Permet de récupérer la valeur name de hero et de l'afficher à l'écran -->
+    </div>
+  </a>
+</div>
+
+<app-hero-search></app-hero-search>
+<!-- appele le composant hero-search via son sélecteur -->
